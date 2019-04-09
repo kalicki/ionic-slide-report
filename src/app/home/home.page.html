@@ -6,9 +6,34 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+<ion-content fullscreen scroll-y="false">
+  <div class="mode-cooktop">
+    <div class="mode-recipe" padding-vertical>
+      <h1 padding-start>Recomendation</h1>
+
+      <ion-slides pager="false" [options]="slideOptions" #tagSlides>
+        <ion-slide *ngFor="let tag of tags">
+          <ion-card class="tag-image" mode="ios" (click)="goRecipePage(tag)">
+            <img src="{{ tag.image }}" alt="" />
+          </ion-card>
+          <h2>{{ tag.title }}</h2>
+        </ion-slide>
+      </ion-slides>
+
+      <!--
+      <div class="recipe-presentation" padding-horizontal>
+        <h2>{{tagTitle}}</h2>
+      </div>
+      -->
+    </div>
+
+    <!--
+    <div class="mode-connected" padding-vertical>
+      <h2 padding-start>Modo Manual</h2>
+      <ion-button margin expand="full" shape="round" color="success" href="/device-find;redirect=mode-connected">
+        Super poderes? Tenha total controle ;)
+      </ion-button>
+    </div>
+    -->
   </div>
 </ion-content>
